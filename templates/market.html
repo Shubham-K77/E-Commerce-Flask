@@ -1,0 +1,43 @@
+{% extends 'index.html' %} {% block title %} Market Page {% endblock %} {% block
+content %}
+<div class="w-full bg-transparent mb-2">Hello Market</div>
+<!-- Items Table -->
+<div class="w-full mb-2 text-gray-100">
+  <table class="border-collapse w-full">
+    <thead class="bg-gray-700 border-2 border-slate-400 w-full">
+      <tr class="hover:cursor-pointer border-2 border-slate-400 text-start">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Barcode</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="bg-gray-600 border-2 border-slate-400 w-full">
+      <!-- Logic For Rendering Data From Loop -->
+      {% for item in items %}
+      <tr
+        class="hover:cursor-pointer border-2 border-slate-400 hover:bg-slate-700 text-center"
+      >
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.barcode}}</td>
+        <td>{{item.price}}</td>
+        <td class="flex justify-center items-center p-2">
+          <button
+            class="shadow-md rounded-md bg-blue-800 text-white hover:cursor-pointer hover:bg-blue-600 w-[8vw] h-[7vh] text-[0.85rem] text-center mr-2"
+          >
+            More Info
+          </button>
+          <button
+            class="shadow-md rounded-md bg-green-800 text-white hover:cursor-pointer hover:bg-green-600 w-[8vw] h-[7vh] text-[0.85rem] text-center"
+          >
+            Purchase
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
